@@ -1,10 +1,11 @@
 ## cis_profile
 
 # References:
-* https://puppet.com/docs/pe/2021.1/pe_user_guide.html
-* https://puppet.com/try-puppet/puppet-enterprise/download/
+* https://puppet.com/blog/enforcing-cis-benchmarks-on-linux-using-puppet/
 * https://forge.puppet.com/modules/fervid/secure_linux_cis
 * https://github.com/fervidus/secure_linux_cis
+* https://puppet.com/docs/pe/2021.1/pe_user_guide.html
+* https://puppet.com/try-puppet/puppet-enterprise/download/
 
 # Pre-requisites
 * One Puppet Enterprise 2021.1 (based on Puppet 7) Primary Master has been setup (OS:  CentOS 8)

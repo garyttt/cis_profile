@@ -11,7 +11,7 @@
 
 # Pre-requisites
 * One Puppet Enterprise 2021.1 (based on Puppet 7) Primary Master has been setup (OS: CentOS 8)
-* Two Puppet Enterise 2021.1 Agents have been setup (OS: CentOS 8 or Ubuntu 20.04)
+* Two Puppet Enterprise 2021.1 Agents have been setup (OS: CentOS 8 or Ubuntu 20.04)
 
 # How to install
 Login to Puppet Enterprise Master

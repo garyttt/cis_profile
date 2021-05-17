@@ -12,9 +12,11 @@
 
 # How to install
 Login to Puppet Enterprise Master
+```bash
 $ git clone git@github.com:garyttt/cis_profile.git
 $ cd cis_profile
 $ sudo ./install.sh
+```
 After a few minutes, it is done.
 
 # How to setup the configuration in PE Console to perform Cyber-Hygiene of two nodes

@@ -6,7 +6,7 @@
 * https://github.com/fervidus/secure_linux_cis
 * https://puppet.com/docs/pe/2021.1/pe_user_guide.html
 * https://puppet.com/try-puppet/puppet-enterprise/download/
-* https://puppet.com/docs/pe/2019.8/osp/the_roles_and_profiles_method.html
+* https://puppet.com/docs/pe/2021.1/osp/the_roles_and_profiles_method.html
 
 # Pre-requisites
 * One Puppet Enterprise 2021.1 (based on Puppet 7) Primary Master has been setup (OS: CentOS 8)

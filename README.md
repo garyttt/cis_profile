@@ -21,6 +21,6 @@ $ sudo ./install.sh
 ```
 After a few minutes, it is done.
 
-# How to setup the configuration in PE Console to perform Cyber-Hygiene of two nodes
+# How to perform Cyber-Hygiene of two nodes
 Refer to the doc:
 * https://github.com/garyttt/cis_profile/blob/main/How%20to%20perform%20Cyber-Hygiene%20using%20Puppet%20Enterprise%202021_1.docx

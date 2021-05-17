@@ -7,6 +7,7 @@
 * https://puppet.com/docs/pe/2021.1/pe_user_guide.html
 * https://puppet.com/try-puppet/puppet-enterprise/download/
 * https://puppet.com/docs/pe/2021.1/osp/the_roles_and_profiles_method.html
+* https://www.cisecurity.org/cis-benchmarks/
 
 # Pre-requisites
 * One Puppet Enterprise 2021.1 (based on Puppet 7) Primary Master has been setup (OS: CentOS 8)

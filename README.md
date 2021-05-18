@@ -6,6 +6,7 @@
 * https://github.com/fervidus/secure_linux_cis
 * https://puppet.com/docs/pe/2021.1/pe_user_guide.html
 * https://puppet.com/try-puppet/puppet-enterprise/download/
+* https://puppet.com/docs/puppet/7.6/hiera_intro.html
 * https://puppet.com/docs/pe/2021.1/osp/the_roles_and_profiles_method.html
 * https://www.cisecurity.org/cis-benchmarks/
 

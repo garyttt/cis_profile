@@ -24,10 +24,10 @@ After a few minutes, it is done.
 
 # Summary of what these scripts do
 
-* 01_install_secure_linux_cis.sh and 02_install_cis_profile.sh scripts install the CIS Benchmarked security_linux_cis COMPONENT module, and cis_profile PROFILE module, it is good design principle to have three levels of Puppet Modules
-* Component modules — Normal modules that manage one particular technology, for example puppetlabs/apache.
-* Profiles — Wrapper classes that use multiple component modules to configure a layered technology stack.
-* Roles — Wrapper classes that use multiple profiles to build a complete system configuration
+* 01_install_secure_linux_cis.sh and 02_install_cis_profile.sh scripts install the CIS Benchmarked security_linux_cis COMPONENT module, and cis_profile PROFILE module, it is good design principle to have three levels of Puppet Modules:
+* ```Component modules``` — Normal modules that manage one particular technology, for example puppetlabs/apache.
+* ```Profiles — Wrapper``` classes that use multiple component modules to configure a layered technology stack.
+* ```Roles``` — Wrapper classes that use multiple profiles to build a complete system configuration.
 
 * 10_disable_exclude_classes.sh
 * Many OS hardening Puppet Forge modules would contain rules to harden Firewall (host based likes iptables and nftables) and SSH related system settings (host based likes AllowUsers and AllowGroups in SSH Server Configs), these settings could cause server crashes and user login issues, and therefore it is better to exclude these in the HIERA data/os hierachies of OSNAME based Major_Release yaml files.
@@ -54,4 +54,4 @@ After a few minutes, it is done.
 Login to Puppet Enterprise 2021.1 Console and refer to the doc:
 * https://github.com/garyttt/cis_profile/blob/main/How%20to%20perform%20Cyber-Hygiene%20using%20Puppet%20Enterprise%202021_1.docx
 
-The doc describes the steps to define Nodes_Group (which was called Classifications in older version of Puppet Enterprise) which is the instance of class, followed by typicall parameters to get the cis_profile initiated, after which 'Pin node' will add the Nodes into Nodes_Group, any puppet agent run will ensure the Desired States get enforced (other nice calling it would be Auto-Healed or Auto-Cyber-Hygiened).
+The doc describes the steps to define ```Nodes_Group``` (which was called ```Classifications``` in older version of Puppet Enterprise) which is the instance of ```class```, followed by typicall parameters to get the ```cis_profile``` initiated, after which ```'Pin node'``` will add the Nodes into Nodes_Group, any puppet agent run will ensure the Desired States get enforced (other nice calling it would be ```Auto-Healing``` or ```Auto-Cyber-Hygiened```).

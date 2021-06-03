@@ -5,7 +5,7 @@
 [ $EUID -ne 0 ] && echo "Not root" && exit 1
 cat <<EOF > /tmp/$$.tmp
 ensure_access_to_the_su_command_is_restricted
-ensure_at_cron_is_restricted_toauthorized_users
+ensure_at_cron_is_restricted_to_authorized_users
 ensure_a_firewall_package_is_installed
 ensure_aide_is_installed
 ensure_all_apparmor_profiles_are_enforcing
@@ -13,7 +13,7 @@ ensure_all_apparmor_profiles_are_in_enforce_or_complain_mode
 ensure_apparmor_is_installed
 ensure_apparmor_is_not_disabled_in_bootloader_configuration
 ensure_bootloader_password_is_set
-ensure_cron_is_restricted_toauthorized_users
+ensure_cron_is_restricted_to_authorized_users
 ensure_default_deny_firewall_policy
 ensure_firewalld_service_is_enabled_and_running
 ensure_firewall_rules_exist_for_all_open_ports

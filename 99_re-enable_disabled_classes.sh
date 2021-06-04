@@ -15,7 +15,7 @@ do
   cd /etc/puppetlabs/code/environments/production/modules/secure_linux_cis/data/os
   for YAML in `find . -name "*.yaml"`
   do
-    echo "Disabling $CLASS in $YAML"
+    echo "Enabling previuosly disabled $CLASS in $YAML"
     sed -i "s/^#.*- $CLASS/- $CLASS/g" $YAML
   done
 done

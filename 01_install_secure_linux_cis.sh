@@ -7,10 +7,11 @@ yum install -y jq || apt-get install -y jq || true
 export PATH=/opt/puppetlabs/puppet/bin:$PATH
 cd /etc/puppetlabs/code/environments/production/modules
 echo "Installing supporting puppet modules."
-puppet module install puppetlabs-stdlib
 puppet module install puppetlabs-concat
+puppet module install puppetlabs-inifile
+puppet module install puppetlabs-stdlib
 puppet module install puppetlabs-translate
-puppet module install camptocamp-systemd
+puppet module install camptocamp-systemd --version 3.0.0 --force
 puppet module install fervid-secure_linux_cis --version 3.0.0 --force
 # next few lines fixes missing dependency nftables
 sed -i 's:puppetlabs/nftables:puppet/nftables:' secure_linux_cis/metadata.json

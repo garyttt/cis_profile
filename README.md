@@ -17,7 +17,7 @@
 # How to install
 Login to Puppet Enterprise Master
 ```bash
-$ git clone git@github.com:garyttt/cis_profile.git
+$ git clone https://github.com/garyttt/cis_profile.git
 $ cd cis_profile
 $ sudo ./install.sh
 ```

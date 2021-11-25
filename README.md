@@ -14,7 +14,10 @@
 * One Puppet Enterprise 2021.1 (based on Puppet 7) Primary Master has been setup (OS: CentOS 8)
 * Two Puppet Enterprise 2021.1 Agents have been setup (OS: CentOS 8 or Ubuntu 20.04)
 
-# How to install
+* Note: for PE 2021.X Primary Master setup, you may refer to Ansible script at:
+* https://github.com/garyttt/freeipa_puppet_foreman#centralized-configuration---install-puppet-enterprise
+
+# How to install CIS Profile
 Login to Puppet Enterprise Master
 ```bash
 $ git clone https://github.com/garyttt/cis_profile.git

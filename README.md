@@ -132,3 +132,56 @@ Login to Puppet Enterprise 2021.1 Console and refer to the doc:
 * https://github.com/garyttt/cis_profile/blob/main/How%20to%20perform%20Cyber-Hygiene%20using%20Puppet%20Enterprise%202021_1.docx
 
 The doc describes the steps to define ```Nodes_Group``` (which was called ```Classifications``` in older version of Puppet Enterprise) which is the instance of ```class```, followed by typicall parameters to get the ```cis_profile``` initiated, after which ```'Pin node'``` will add the Nodes into Nodes_Group, any puppet agent run will ensure the Desired States get enforced (other nice calling it would be ```Auto-Healing``` or ```Auto-Cyber-Hygiened```).
+
+# Reducing Puppet Agent Runtime
+
+Login as root to Puppet Enterprise Server
+
+For practical reasons we should define EXCLUDES so as to reduce the runtime of Puppet Agent and save system resources.
+```
+[root@puppet files]# pwd
+/etc/puppetlabs/code/environments/production/modules/secure_linux_cis/files
+[root@puppet files]#
+[root@puppet files]#
+[root@puppet files]# diff ensure_no_ungrouped.sh.orig ensure_no_ungrouped.sh
+2c2,9
+< df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -nogroup
+---
+> # Reasons to exclude:
+> # /var/cache/private/fwupdmgr - Ubuntu Firmware Update Manager work files
+> # /var/lib/docker/overlay2 - Docker work files
+> # /var/lib/kubelet/pods - Kubernetes work files
+> # /var/opt/microsoft/omsagent - Azure Linux VM cloud-init work files
+> EXCLUDES="^/var/cache/private/fwupdmgr|^/var/lib/docker/overlay2|^/var/lib/kubelet/pods|^/var/opt/microsoft/omsagent"
+> df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -nogroup | egrep -v "$EXCLUDES"
+>
+[root@puppet files]#
+[root@puppet files]#
+[root@puppet files]#  diff ensure_no_unowned.sh.orig ensure_no_unowned.sh
+2c2,9
+< df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -nouser
+---
+> # Reasons to exclude:
+> # /var/cache/private/fwupdmgr - Ubuntu Firmware Update Manager work files
+> # /var/lib/docker/overlay2 - Docker work files
+> # /var/lib/kubelet/pods - Kubernetes work files
+> # /var/opt/microsoft/omsagent - Azure Linux VM cloud-init work files
+> EXLUDES="^/var/cache/private/fwupdmgr|^/var/lib/docker/overlay2|^/var/lib/kubelet/pods|^/var/opt/microsoft/omsagent"
+> df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -nouser | egrep -v "$EXCLUDES"
+>
+[root@puppet files]#
+[root@puppet files]#
+[root@puppet files]# diff ensure_no_world_writable.sh.orig ensure_no_world_writable.sh
+1c1,9
+< df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type f -perm -0002
+---
+> #!/bin/bash
+> # Reasons to exclude:
+> # /var/cache/private/fwupdmgr - Ubuntu Firmware Update Manager work files
+> # /var/lib/docker/overlay2 - Docker work files
+> # /var/lib/kubelet/pods - Kubernetes work files
+> # /var/opt/microsoft/omsagent - Azure Linux VM cloud-init work files
+> EXLUDES="^/var/cache/private/fwupdmgr|^/var/lib/docker/overlay2|^/var/lib/kubelet/pods|^/var/opt/microsoft/omsagent"
+> df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type f -perm -0002 | egrep -v "$EXCLUDES"
+>
+```
